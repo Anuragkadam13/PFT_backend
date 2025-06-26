@@ -9,7 +9,7 @@ const createUser = async (req, res) => {
   const result = validationResult(req);
   //Shows error and bad request if there is any..
   if (!result.isEmpty()) {
-    return res.status(400).json({ error: result.array() });
+    return res.status(400).json({ errors: result.array() });
   }
   try {
     //Check whether the user with same email is already exist or not
@@ -48,7 +48,7 @@ const loginUser = async (req, res) => {
   const result = validationResult(req);
   //Shows error and bad request if there is any..
   if (!result.isEmpty()) {
-    return res.status(400).json({ error: result.array() });
+    return res.status(400).json({ errors: result.array() });
   }
 
   try {
